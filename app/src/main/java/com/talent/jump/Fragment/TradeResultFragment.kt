@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.talent.jump.R
 import com.talent.jump.databinding.TradeResultFragmentBinding
@@ -41,11 +43,16 @@ class TradeResultFragment:BaseFragment() {
        if (statusCode.contains("失敗"))
        {
            binding.checkboxFail.setBackgroundResource(R.drawable.check_box_selected)
+           binding.failHint.visibility=View.VISIBLE
        }
         else
        {
            binding.checkboxSuccess.setBackgroundResource(R.drawable.check_box_selected)
        }
+
+        binding.btnSendResult.setOnClickListener {
+            view?.findNavController()?.navigate(R.id.mainFragment)
+        }
     }
 
 

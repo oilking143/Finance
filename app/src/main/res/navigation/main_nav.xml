@@ -34,6 +34,18 @@
             android:name="states_msg"
             app:argType="string"
             app:nullable="false" />
+        <action
+            android:id="@+id/action_tradeResultFragment_to_reportFragment"
+            app:destination="@id/reportFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reportFragment"
+        android:name="com.talent.jump.Fragment.ReportFragment"
+        android:label="ReportFragment" >
+        <action
+            android:id="@+id/action_reportFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 
 

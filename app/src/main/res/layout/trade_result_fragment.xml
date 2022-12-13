@@ -131,6 +131,18 @@
         app:layout_constraintBottom_toTopOf="@+id/editText"
         app:layout_constraintStart_toStartOf="@+id/editText" />
 
+    <TextView
+        android:id="@+id/fail_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="此欄位為必填"
+        android:textColor="#F84A1F"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="@+id/editText" />
+
     <EditText
         android:id="@+id/editText"
         android:layout_width="0dp"

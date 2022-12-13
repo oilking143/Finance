@@ -87,12 +87,12 @@ class LoginFragment: BaseFragment() {
     fun onErrorEvent(event: errorEvent?) {
 
         binding.loginProgress.visibility=View.GONE
-                        AlertDialog.Builder(requireContext())
-                            .setMessage(event!!.getMsg().errorMsg)
-                            .setTitle(event!!.getMsg().errorCode)
-                            .setNegativeButton("了解"
-                            ) { _, _ -> requireActivity().supportFragmentManager.popBackStack() }
-                            .show()
+        AlertDialog.Builder(requireContext())
+        .setMessage(event!!.getMsg().errorMsg)
+        .setTitle(event!!.getMsg().errorCode)
+        .setNegativeButton("了解")
+        { _, _ -> requireActivity().supportFragmentManager.popBackStack() }
+        .show()
 
     }
 
