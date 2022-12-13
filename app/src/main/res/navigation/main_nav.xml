@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/login_nav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.talent.jump.Fragment.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_loadingFragment"
+            app:destination="@id/loadingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loadingFragment"
+        android:name="com.talent.jump.Fragment.LoadingFragment"
+        android:label="LoadingFragment" >
+
+        <action
+            android:id="@+id/action_loadingFragment_to_tradeResultFragment"
+            app:destination="@id/tradeResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tradeResultFragment"
+        android:name="com.talent.jump.Fragment.TradeResultFragment"
+        android:label="TradeResultFragment">
+        <argument
+            android:name="states_code"
+            app:argType="string"
+            app:nullable="false" />
+
+        <argument
+            android:name="states_msg"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
+
+
+</navigation>

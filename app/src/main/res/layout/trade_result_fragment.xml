@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/trade_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="交易結果"
+        android:textColor="#0A3358"
+        android:textSize="28sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="成功"
+        android:textColor="#0A3358"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/checkbox_success"
+        app:layout_constraintEnd_toStartOf="@+id/checkbox_success"
+        app:layout_constraintTop_toTopOf="@+id/checkbox_success" />
+
+    <CheckBox
+        android:id="@+id/checkbox_success"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="-10dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/check_box_normal"
+        app:layout_constraintEnd_toStartOf="@+id/trade_title"
+        app:layout_constraintTop_toBottomOf="@id/trade_title"
+        android:enabled="false"/>
+
+
+    <TextView
+        android:id="@+id/fail_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="失敗"
+        android:textColor="#0A3358"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="-10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/checkbox_success"
+        app:layout_constraintStart_toEndOf="@+id/trade_title"
+        app:layout_constraintTop_toTopOf="@+id/checkbox_success" />
+
+    <CheckBox
+        android:id="@+id/checkbox_fail"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:enabled="false"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/check_box_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/fail_title"
+        app:layout_constraintStart_toEndOf="@+id/fail_title"
+        app:layout_constraintTop_toTopOf="@+id/fail_title" />
+
+    <TextView
+        android:id="@+id/bank_card_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="綁定銀行卡"
+        android:textColor="#9CA7C3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="銀行卡"
+        android:textColor="#0A3358"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/bank_card_title"
+        app:layout_constraintTop_toBottomOf="@+id/bank_card_title" />
+
+    <LinearLayout
+        android:id="@+id/bind_txt_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintStart_toEndOf="@+id/checkbox_success"
+        app:layout_constraintTop_toTopOf="@+id/textView3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="綁定銀行卡"
+            android:textColor="#9CA7C3"
+            android:layout_gravity="center"
+            android:gravity="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#9CA7C3"
+            app:layout_constraintTop_toBottomOf="@id/bind_txt_btn"
+            app:layout_constraintStart_toStartOf="@+id/bind_txt_btn"
+            app:layout_constraintEnd_toEndOf="@id/bind_txt_btn"/>
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="備註"
+        android:textColor="#9CA7C3"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintStart_toStartOf="@+id/editText" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="140dp"
+        android:background="@drawable/note_frame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/btn_send_result"
+        android:layout_width="80dp"
+        android:layout_height="38dp"
+        android:background="@drawable/order_confirm_btn_frame"
+        app:layout_constraintEnd_toEndOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="送出"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
