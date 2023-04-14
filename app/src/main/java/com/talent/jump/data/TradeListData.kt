@@ -1,7 +1,6 @@
 package com.talent.jump.data
 
 data class TradeListData(
-    val member_levels: MemberLevels,
-    val payment_channels: PaymentChannels,
+    val payment_channel_name: TradeListPaymentChannelName,
     val response: List<ResponseTradeList>
 )

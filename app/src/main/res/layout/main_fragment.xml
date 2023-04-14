@@ -1,69 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFFFF"
     >
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/trader_list_recycler"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+    <ProgressBar
+        android:id="@+id/main_progress"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="0dp"
-        android:layout_height="110dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:id="@+id/home_page"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="20dp"
-            android:src="@drawable/home_page_select"
-            app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/trader_list_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/accessing_frame"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/trade_list_bg_frame"
+        android:visibility="gone"
+        >
 
         <TextView
+            android:id="@+id/fund_type"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="首頁"
-            android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="@+id/home_page"
-            app:layout_constraintStart_toStartOf="@+id/home_page"
-            app:layout_constraintTop_toBottomOf="@+id/home_page" />
-
-
-        <ImageView
-            android:id="@+id/user"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginEnd="20dp"
-            android:src="@drawable/user_normal"
+            android:layout_height="0dp"
+            android:background="@drawable/trade_type_label_frame"
+            android:ems="1"
+            android:text="出款"
+            android:gravity="center"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/accessing_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="用戶"
-            android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="@+id/user"
-            app:layout_constraintStart_toStartOf="@+id/user"
-            app:layout_constraintTop_toBottomOf="@+id/user" />
+            android:layout_marginBottom="5dp"
+            android:text="1234567890"
+            android:textColor="#D6DFFF"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fund_type" />
 
+        <TextView
+            android:id="@+id/trade_fund_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="交易金額:"
+            android:textColor="#D6DFFF"
+            android:textSize="15sp"
+            android:layout_marginStart="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/accessing_content"
+            app:layout_constraintTop_toTopOf="@+id/accessing_content"
+            app:layout_constraintStart_toEndOf="@+id/accessing_content"/>
+
+        <TextView
+            android:id="@+id/trade_fund_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="99NT"
+            android:textColor="#D6DFFF"
+            android:textSize="15sp"
+            android:layout_marginStart="5dp"
+            app:layout_constraintStart_toEndOf="@+id/trade_fund_title"
+            app:layout_constraintBottom_toBottomOf="@+id/accessing_content"
+            app:layout_constraintTop_toTopOf="@+id/accessing_content" />
+
+        <LinearLayout
+            android:id="@+id/check_order"
+            android:layout_width="95dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/tradelist_tail_btn_frame"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/trade_fund_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="查看訂單"
+                android:textColor="#0A3758"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

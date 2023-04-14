@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="status">#0A3758</color>
+    <color name="spinnerbg">#636161</color>
+    <color name="togglroff">#636161</color>
+    <color name="toggleon">#84FFFF</color>
+    <color name="togglrtxtoff">#B3DFDF</color>
+    <color name="togglrtxton">#3B5151</color>
 </resources>

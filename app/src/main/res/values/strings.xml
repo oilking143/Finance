@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Finance</string>
+    <array name="channel_name">
+        <item>title</item>
+        <item>銀行卡</item>
+        <item>支付寶</item>
+        <item>ERC20(USTD)</item>
+        <item>TRC20(USTD)</item>
+    </array>
+    <array name="channel_spinner_name">
+        <item>銀行卡</item>
+        <item>支付寶</item>
+        <item>ERC20(USTD)</item>
+        <item>TRC20(USTD)</item>
+        <item>請選擇支付通道</item>
+    </array>
 </resources>

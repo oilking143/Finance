@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="30dp"
+    android:orientation="vertical"
     android:background="@drawable/dialog_outer_frame"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/title_bar"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:gravity="center"
         android:background="@drawable/dailog_title_top_frame"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        >
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,182 +26,222 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/content_area"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_area"
-        app:layout_constraintTop_toBottomOf="@+id/title_bar"
-        tools:layout_editor_absoluteX="0dp">
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="20sp"
+        >
 
         <TextView
             android:id="@+id/order_number_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20sp"
-            android:layout_marginTop="20sp"
             android:text="訂單編號:"
             android:textColor="#25315B"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/order_number_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2sp"
+            android:layout_marginStart="5sp"
             android:text="123456789"
             android:textColor="#25315B"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/order_number_title"
-            app:layout_constraintStart_toEndOf="@+id/order_number_title"
-            app:layout_constraintTop_toTopOf="@+id/order_number_title" />
-
-        <TextView
-            android:id="@+id/merchant_name_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:text="商人名:"
-            android:textColor="#25315B"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/order_number_title"
-            app:layout_constraintTop_toBottomOf="@+id/order_number_title" />
-
-        <TextView
-            android:id="@+id/merchant_name_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="18dp"
-            android:text="影之強者"
-            android:textColor="#25315B"
-            android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/merchant_name_title"
-            app:layout_constraintTop_toBottomOf="@+id/order_number_title" />
+            android:textSize="16sp" />
 
 
-        <TextView
-            android:id="@+id/member_level_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="-10dp"
-            android:layout_marginTop="18dp"
-            android:text="會員等級:"
-            android:textColor="#25315B"
-            android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/order_number_content"
-            app:layout_constraintTop_toBottomOf="@+id/order_number_title" />
+    </LinearLayout>
 
-
-        <TextView
-            android:id="@+id/member_level_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:text="99"
-            android:textColor="#25315B"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/member_level_title"
-            app:layout_constraintStart_toEndOf="@+id/member_level_title"
-            app:layout_constraintTop_toTopOf="@+id/member_level_title" />
-
-        <LinearLayout
-            android:layout_width="90dp"
-            android:layout_height="10dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="20dp"
-            android:paddingEnd="20dp"
-            app:layout_constraintBottom_toBottomOf="@+id/member_level_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/member_level_content"
-            app:layout_constraintTop_toTopOf="@+id/member_level_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="20sp">
 
         <TextView
             android:id="@+id/bank_info_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="銀行資訊"
+            android:text="銀行資訊:"
             android:textColor="#25315B"
-            app:layout_constraintStart_toStartOf="@+id/merchant_name_title"
-            app:layout_constraintTop_toBottomOf="@+id/merchant_name_title" />
+          />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom"
+        android:paddingStart="20sp">
 
         <TextView
-            android:id="@+id/bank_info_content"
+            android:id="@+id/bank_num_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="110中華郵政 帳戶1234567890"
+            android:text="110 "
             android:textColor="#25315B"
             android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/bank_info_title"
-            app:layout_constraintTop_toBottomOf="@+id/bank_info_title" />
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom"
+        android:paddingStart="20sp">
+
+
+        <TextView
+            android:id="@+id/bank_name_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中華郵政"
+            android:textColor="#25315B"
+            android:textSize="18sp"
+            />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom"
+        android:paddingStart="20sp">
+
+
+        <TextView
+            android:id="@+id/bank_account_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="帳戶: "
+            android:textColor="#25315B"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:id="@+id/bank_account_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1234567890"
+            android:textColor="#25315B"
+            android:textSize="18sp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/payment_selector"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom"
+        android:paddingStart="20sp"
+        android:visibility="gone"
+        >
+
+
+        <TextView
+            android:id="@+id/bank_card_select"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="交易銀行卡: "
+            android:textColor="#25315B"
+            android:textSize="18sp"
+            android:layout_weight="4"
+            />
+
+        <Spinner
+            android:id="@+id/payment_spinner"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:spinnerMode="dropdown"
+            android:layout_weight="6"
+            />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        android:layout_marginBottom="5dp"
+       >
 
         <TextView
             android:id="@+id/out_time_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="15dp"
             android:text="出單時間："
             android:textColor="#25315B"
             android:textSize="12sp"
-           app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_marginStart="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/out_time_content"
+            android:layout_marginBottom="10dp"
+            />
 
         <TextView
             android:id="@+id/out_time_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginBottom="15dp"
             android:text="89.05.17 2:00"
             android:textColor="#25315B"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/out_time_title" />
+            app:layout_constraintStart_toStartOf="@+id/out_time_title" />
 
         <TextView
             android:id="@+id/dead_time_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginBottom="15dp"
-            android:text="出單時間："
+            android:layout_marginBottom="10dp"
+            android:text="到期時間："
             android:textColor="#25315B"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/dead_time_content" />
+            android:layout_marginEnd="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/dead_time_content"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/dead_time_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="15dp"
             android:text="89.05.17 2:00"
             android:textColor="#25315B"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/dead_time_title" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottom_area"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@drawable/dailog_bottom_frame"
-        app:layout_constraintTop_toBottomOf="@+id/content_area"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:background="@drawable/dailog_bottom_frame">
 
         <LinearLayout
             android:id="@+id/confirm_order"
@@ -226,4 +265,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

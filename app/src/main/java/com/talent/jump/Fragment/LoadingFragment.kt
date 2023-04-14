@@ -3,13 +3,17 @@ package com.talent.jump.Fragment
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.talent.jump.Events.TakeTradeEvent
-import com.talent.jump.Events.errorEvent
+import androidx.navigation.fragment.navArgs
+import com.talent.jump.Events.*
 import com.talent.jump.R
+import com.talent.jump.data.ResponsePayments
 import com.talent.jump.databinding.LoadingFragmentBinding
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -18,6 +22,10 @@ import org.greenrobot.eventbus.ThreadMode
 class LoadingFragment:BaseFragment() {
     private var _binding: LoadingFragmentBinding? = null
     private val binding get() = _binding!!
+    var trade_id=""
+    var trade_type=0
+    var payment_id=""
+    val args by navArgs<LoadingFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,7 +39,9 @@ class LoadingFragment:BaseFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-
+        trade_id=args.id
+        payment_id=args.paymentId
+        trade_type=args.type
     }
 
     override fun onStart() {
@@ -46,22 +56,33 @@ class LoadingFragment:BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        apiclient.TakeTread(trade_id,payment_id)
 
-        apiclient.TakeTeade("1234")
     }
+
 
     @SuppressLint("SuspiciousIndentation")
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onTakeTradeEvent(event: TakeTradeEvent?) {
-        findNavController().navigate(R.id.action_mainFragment_to_loadingFragment)
+
+        apiclient.getConduct()
 
     }
 
+    @SuppressLint("SuspiciousIndentation")
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onErrorEvent(event: errorEvent?) {
+    fun onConductEvent(event: ConductEvent?) {
+
+        view?.findNavController()?.popBackStack()
+
+    }
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onFailEvent(event: TradeFailEvent?) {
         val state_code=event!!.getMsg().errorCode
         val states_msg=event!!.getMsg().errorMsg
-        val action = LoadingFragmentDirections.actionLoadingFragmentToTradeResultFragment(state_code,states_msg)
+        val action = LoadingFragmentDirections.actionLoadingFragmentToTradeResultFragment(payment_id,trade_id,state_code,states_msg,trade_type)
 
         findNavController().navigate(action)
 

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    >
+
+
+    <EditText
+        android:id="@+id/date_bar"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/date_info_frame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/history_search"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/date_bar"
+        app:layout_constraintEnd_toEndOf="@+id/date_bar"
+        app:layout_constraintTop_toTopOf="@+id/date_bar" />
+
+    <TextView
+        android:id="@+id/order_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="共"
+        android:textColor="#9CA7C3"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/date_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="20dp"
+        />
+
+    <TextView
+        android:id="@+id/order_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="999"
+        android:textColor="#0A3358"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="@+id/order_title"
+        app:layout_constraintStart_toEndOf="@+id/order_title"
+        android:layout_marginStart="5dp"
+        />
+
+    <TextView
+        android:id="@+id/order_tail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="筆訂單"
+        android:textColor="#9CA7C3"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="@+id/order_content"
+        app:layout_constraintStart_toEndOf="@+id/order_content"
+        android:layout_marginStart="5dp"
+        />
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="時間由近到遠"
+        android:textColor="#F45A4F"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/order_content" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/history_list_recycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

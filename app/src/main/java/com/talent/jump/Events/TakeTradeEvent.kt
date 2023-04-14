@@ -1,16 +1,16 @@
 package com.talent.jump.Events
 
-import com.talent.jump.data.TakeTradeResponse
+import com.google.gson.JsonObject
 
 
-class TakeTradeEvent internal constructor(takeTradeResponse: TakeTradeResponse){
-    private var takeTradeResponse: TakeTradeResponse = takeTradeResponse
+class TakeTradeEvent internal constructor(takeTradeResponse: JsonObject){
+    private var takeTradeResponse: JsonObject = takeTradeResponse
 
     init {
         this.takeTradeResponse = takeTradeResponse
     }
 
-    fun GetTakeResponse(): TakeTradeResponse
+    fun GetTakeResponse(): JsonObject
     {
         return takeTradeResponse
     }

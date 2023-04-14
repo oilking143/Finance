@@ -3,6 +3,7 @@ package com.talent.jump.Fragment
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -22,6 +23,7 @@ import org.greenrobot.eventbus.ThreadMode
 class LoginFragment: BaseFragment() {
     private var _binding: LoginFragmentBinding? = null
     private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -51,6 +53,17 @@ class LoginFragment: BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val sharedPref =
+            requireContext().getSharedPreferences("finance", Context.MODE_PRIVATE)
+        val storedName=sharedPref.getString("account", "")
+        val storePwd=sharedPref.getString("password", "")
+
+        if(storedName!!.isNotEmpty())
+        {
+            binding.userEdit.setText(storedName)
+            binding.pwdEdit.setText(storePwd)
+        }
+
         binding.loginRequest.setOnClickListener {
             binding.loginProgress.visibility=View.VISIBLE
             var LoginJson=JsonObject()
@@ -73,6 +86,13 @@ class LoginFragment: BaseFragment() {
 
         if(event!!.GetLoginData().status)
         {
+            val sharedPref =
+                requireContext().getSharedPreferences("finance", Context.MODE_PRIVATE)
+            val editor: SharedPreferences.Editor = sharedPref.edit()
+            editor.putString("account", "${binding.userEdit.text}")
+            editor.putString("password", "${binding.pwdEdit.text}")
+            editor.commit()
+            binding.loginProgress.visibility=View.GONE
             val data=event!!.GetLoginData().data
             GlobalData.loginToken=data
             val intent = Intent(activity, MainActivity::class.java)

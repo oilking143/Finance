@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:id="@+id/card_total_own"
+        android:layout_width="147dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="50dp"
+        android:background="#B9BFD3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:gravity="right"
+            android:text="銀行卡："
+            android:textColor="#0A3358"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/card_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="--"
+            android:textColor="#0A3358"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="張"
+            android:textColor="#0A3358"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/create_payment"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:background="#B9BFD3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginStart="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/card_total_own"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="新增支付"
+            android:gravity="center"
+            android:textColor="#0A3358"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/card_list_frame"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:visibility="gone"
+        android:background="@drawable/card_recycler_frame"
+        app:layout_constraintEnd_toEndOf="@+id/out_fund_order_title"
+        app:layout_constraintStart_toStartOf="@+id/card_total_own"
+        app:layout_constraintTop_toBottomOf="@+id/card_total_own" >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/card_list_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/total_fund_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="總收益："
+        android:textColor="#9CA7C3"
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="@+id/card_total_own"
+        app:layout_constraintTop_toBottomOf="@+id/card_list_frame" />
+
+    <TextView
+        android:id="@+id/total_fund_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="99999NT"
+        android:textColor="#0A3358"
+        android:textSize="20sp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/fund_monthly_title"
+        app:layout_constraintStart_toEndOf="@+id/fund_monthly_title"
+        app:layout_constraintTop_toBottomOf="@+id/fund_monthly_title"
+        app:layout_constraintTop_toTopOf="@+id/fund_monthly_title" />
+
+    <TextView
+        android:id="@+id/fund_monthly_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="本月收益:"
+        android:textColor="#9CA7C3"
+        android:textSize="24sp"
+        android:layout_marginTop="14sp"
+        app:layout_constraintStart_toStartOf="@+id/total_fund_title"
+        app:layout_constraintTop_toBottomOf="@+id/total_fund_title" />
+
+    <TextView
+        android:id="@+id/out_fund_total_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="出款總額"
+        android:textColor="#0A3358"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/fund_monthly_title"
+        app:layout_constraintTop_toBottomOf="@+id/fund_monthly_title" />
+
+    <TextView
+        android:id="@+id/out_fund_total_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0000000"
+        android:textColor="#A5ACC5"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/out_fund_total_title"
+        app:layout_constraintStart_toStartOf="@+id/out_fund_total_title"
+        app:layout_constraintTop_toBottomOf="@+id/out_fund_total_title" />
+
+    <TextView
+        android:id="@+id/out_fund_order_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="出款單數"
+        android:textColor="#0A3358"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/out_fund_total_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="@+id/fund_monthly_title"
+        app:layout_constraintTop_toTopOf="@+id/out_fund_total_title" />
+
+    <TextView
+        android:id="@+id/out_fund_order_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="0000000"
+        android:textColor="#A5ACC5"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/out_fund_order_title"
+        app:layout_constraintStart_toStartOf="@+id/out_fund_order_title"
+        app:layout_constraintTop_toBottomOf="@+id/out_fund_order_title" />
+
+
+    <TextView
+        android:id="@+id/income_fund_total_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="入款總額"
+        android:textColor="#0A3358"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/out_fund_total_title"
+        app:layout_constraintTop_toBottomOf="@+id/out_fund_total_content" />
+
+    <TextView
+        android:id="@+id/income_fund_total_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0000000"
+        android:textColor="#A5ACC5"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/income_fund_total_title"
+        app:layout_constraintStart_toStartOf="@+id/income_fund_total_title"
+        app:layout_constraintTop_toBottomOf="@+id/income_fund_total_title" />
+
+    <TextView
+        android:id="@+id/income_fund_order_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="入款單數"
+        android:textColor="#0A3358"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/income_fund_total_title"
+        app:layout_constraintStart_toStartOf="@+id/out_fund_order_title"
+        app:layout_constraintTop_toTopOf="@+id/income_fund_total_title" />
+
+    <TextView
+        android:id="@+id/income_fund_order_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0000000"
+        android:textColor="#A5ACC5"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/income_fund_order_title"
+        app:layout_constraintStart_toStartOf="@+id/income_fund_order_title"
+        app:layout_constraintTop_toBottomOf="@+id/income_fund_order_title" />
+
+    <TextView
+        android:id="@+id/quota_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="當前信用額度"
+        android:textColor="#0A3358"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@+id/income_fund_total_title"
+        app:layout_constraintTop_toBottomOf="@+id/income_fund_total_content" />
+
+    <TextView
+        android:id="@+id/quota_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="0000000"
+        android:textColor="#A5ACC5"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/quota_title"
+        app:layout_constraintStart_toStartOf="@+id/quota_title"
+        app:layout_constraintTop_toBottomOf="@+id/quota_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

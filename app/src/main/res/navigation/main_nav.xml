@@ -11,11 +11,28 @@
         <action
             android:id="@+id/action_mainFragment_to_loadingFragment"
             app:destination="@id/loadingFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_tradeResultFragment"
+            app:destination="@id/tradeResultFragment" />
     </fragment>
     <fragment
         android:id="@+id/loadingFragment"
         android:name="com.talent.jump.Fragment.LoadingFragment"
         android:label="LoadingFragment" >
+        <argument
+            android:name="id"
+            app:argType="string"
+            app:nullable="false" />
+
+        <argument
+            android:name="payment_id"
+            app:argType="string"
+            app:nullable="false" />
+
+        <argument
+            android:name="type"
+            app:argType="integer"
+            app:nullable="false" />
 
         <action
             android:id="@+id/action_loadingFragment_to_tradeResultFragment"
@@ -25,6 +42,17 @@
         android:id="@+id/tradeResultFragment"
         android:name="com.talent.jump.Fragment.TradeResultFragment"
         android:label="TradeResultFragment">
+
+        <argument
+            android:name="payment_code"
+            app:argType="string"
+            app:nullable="false" />
+
+        <argument
+            android:name="trade_code"
+            app:argType="string"
+            app:nullable="false" />
+
         <argument
             android:name="states_code"
             app:argType="string"
@@ -34,6 +62,13 @@
             android:name="states_msg"
             app:argType="string"
             app:nullable="false" />
+
+        <argument
+            android:name="type"
+            app:argType="integer"
+            app:nullable="false" />
+
+
         <action
             android:id="@+id/action_tradeResultFragment_to_reportFragment"
             app:destination="@id/reportFragment" />
